@@ -32,7 +32,8 @@ base {
 }
 
 android {
-    namespace = project.property("APP_ID").toString()
+    // Rosenweg: nur die applicationId ist eigen (ch.rosenweg4303.documents); Kotlin-Namensraum wie im Original.
+    namespace = "org.fossify.documents"
     compileSdk = project.libs.versions.app.build.compileSDKVersion.get().toInt()
 
     defaultConfig {
