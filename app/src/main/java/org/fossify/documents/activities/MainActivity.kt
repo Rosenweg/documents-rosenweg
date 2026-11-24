@@ -87,6 +87,8 @@ class MainActivity : BaseComposeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appLaunchedCompose(appId = BuildConfig.APPLICATION_ID)
+        // Rosenweg (Regel 7): Einstellungen der angemeldeten Person von der Anlage
+        org.fossify.documents.helpers.AnlageEinstellungen.abgleichen(this) { recreate() }
         checkAppIconColor()
         enableEdgeToEdgeSimple()
         setContent {

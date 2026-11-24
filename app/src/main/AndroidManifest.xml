@@ -6,6 +6,12 @@
         android:name="android.permission.USE_FINGERPRINT"
         tools:node="remove" />
 
+    <!-- Rosenweg: Einstellungen pro Person ueber die Geraete-App (AnlageProvider) -->
+    <uses-permission android:name="ch.rosenweg4303.permission.ANLAGE" />
+    <queries>
+        <provider android:authorities="ch.rosenweg4303.telefon.anlage" />
+    </queries>
+
     <application
         android:name="org.fossify.commons.FossifyApp"
         android:allowBackup="true"
@@ -357,5 +363,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
+        <!-- Rosenweg: Anmeldung am geteilten Telefon (nur Rosenweg-Signatur) -->
+        <receiver
+            android:name=".helpers.AnlageEinstellungen$Empfaenger"
+            android:exported="true"
+            android:permission="ch.rosenweg4303.permission.ANLAGE">
+            <intent-filter>
+                <action android:name="ch.rosenweg4303.ANGEMELDET" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
