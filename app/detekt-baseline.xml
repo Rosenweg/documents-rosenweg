@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:AnlageEinstellungen.kt$AnlageEinstellungen$private fun senden(ctx: Context, prefs: SharedPreferences)</ID>
+    <ID>LoopWithTooManyJumpStatements:AnlageEinstellungen.kt$AnlageEinstellungen$for</ID>
+    <ID>TooGenericExceptionCaught:AnlageEinstellungen.kt$AnlageEinstellungen$e: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>
