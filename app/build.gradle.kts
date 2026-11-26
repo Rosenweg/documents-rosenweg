@@ -169,6 +169,8 @@ detekt {
 dependencies {
     // Rosenweg Updater (ohne Geraet: alle Rosenweg-Apps aus dem Katalog der Anlage aktuell halten)
     implementation("ch.rosenweg4303:updater:0.1.2")
+    // Rosenweg-Nextcloud: Zugang (KontoSpeicher, Anmeldeschirm) und WebDAV
+    implementation("ch.rosenweg4303:cloud:0.10.0")
     implementation(libs.fossify.commons)
     implementation(libs.android.pdf.viewer)
     implementation(libs.java.mammoth)

@@ -62,6 +62,22 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false" />
 
+        <!-- Rosenweg: Dokumente aus der Rosenweg-Nextcloud (WebDAV), nur lesen -->
+        <activity
+            android:name=".rosenweg.NextcloudDokumenteActivity"
+            android:exported="false"
+            android:label="Rosenweg-Nextcloud" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.rosenweg.dateien"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rosenweg_dateien" />
+        </provider>
+
         <activity
             android:name=".activities.DocumentOpenActivity"
             android:exported="true"
