@@ -200,6 +200,13 @@ internal fun DocumentsOverflowMenu(
             offset = DocumentsEndMenuOffset,
         ) {
             DropdownMenuItem(
+                text = { Text("Rosenweg-Nextcloud") },
+                onClick = {
+                    visible = false
+                    actions.openNextcloud()
+                },
+            )
+            DropdownMenuItem(
                 text = { Text(stringResource(org.fossify.commons.R.string.settings)) },
                 onClick = {
                     visible = false

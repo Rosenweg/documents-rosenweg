@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dokumente aus der Rosenweg-Nextcloud im Zwischenspeicher (NextcloudDokumenteActivity) -->
+<paths>
+    <cache-path name="nextcloud" path="nextcloud/" />
+</paths>

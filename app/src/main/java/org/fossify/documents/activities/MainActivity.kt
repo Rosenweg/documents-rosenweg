@@ -131,6 +131,7 @@ class MainActivity : BaseComposeActivity() {
             )
         },
         openSettings = ::launchSettings,
+        openNextcloud = { startActivity(Intent(this, org.fossify.documents.rosenweg.NextcloudDokumenteActivity::class.java)) },
         openAbout = ::launchAbout,
         clearRecentDocuments = viewModel::clearRecentDocuments,
         onQueryChange = viewModel.onQueryChange,
