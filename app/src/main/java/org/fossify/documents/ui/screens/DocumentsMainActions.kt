@@ -12,6 +12,8 @@ internal data class DocumentsMainActions(
     val newTextFile: () -> Unit,
     val newMarkdownFile: () -> Unit,
     val openSettings: () -> Unit,
+    /** Rosenweg: Dokumente aus der Rosenweg-Nextcloud */
+    val openNextcloud: () -> Unit,
     val openAbout: () -> Unit,
     val clearRecentDocuments: () -> Unit,
     val onQueryChange: (String) -> Unit,
