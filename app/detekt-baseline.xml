@@ -4,6 +4,20 @@
   <CurrentIssues>
     <ID>CyclomaticComplexMethod:AnlageEinstellungen.kt$AnlageEinstellungen$private fun senden(ctx: Context, prefs: SharedPreferences)</ID>
     <ID>LoopWithTooManyJumpStatements:AnlageEinstellungen.kt$AnlageEinstellungen$for</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$16</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$17f</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$2</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$20f</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$52</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$8</ID>
+    <ID>MagicNumber:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$86_400_000L</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$openNextcloud = { startActivity(Intent(this, org.fossify.documents.rosenweg.NextcloudDokumenteActivity::class.java)) }</ID>
+    <ID>MaxLineLength:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$meldung.text = "Nicht angemeldet. Melde dich an (Rosenweg-Karte oder Rosenweg-Konto), dann siehst du hier deine Dokumente."</ID>
+    <ID>MaxLineLength:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$ordner.listFiles()?.filter { System.currentTimeMillis() - it.lastModified() &gt; 86_400_000L }?.forEach { it.delete() }</ID>
+    <ID>MaxLineLength:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$titel = TextView(this).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f); setPadding(rand, rand, rand, dp(8)) }</ID>
     <ID>TooGenericExceptionCaught:AnlageEinstellungen.kt$AnlageEinstellungen$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity$x: Exception</ID>
+    <ID>TooManyFunctions:NextcloudDokumenteActivity.kt$NextcloudDokumenteActivity : Activity</ID>
   </CurrentIssues>
 </SmellBaseline>
