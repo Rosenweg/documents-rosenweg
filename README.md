@@ -7,6 +7,7 @@
 
 - [Überblick](#überblick)
 - [Plattformen](#plattformen)
+- [Anmeldung](#anmeldung)
 - [Rechte und Gruppen](#rechte-und-gruppen)
 - [Bedienung](#bedienung)
 - [Geteilte Rosenweg-Telefone](#geteilte-rosenweg-telefone)
@@ -28,6 +29,7 @@ Was die App kann:
 - **Dateien aus der Nextcloud:** über Rosenweg Files oder die Dateiauswahl von Android.
 - **Zuletzt geöffnet und Favoriten:** die wichtigsten Dateien gleich auf der Startseite.
 - **Einstellungen pro Person:** auf geteilten Telefonen gehören sie der angemeldeten Person.
+- **Rosenweg-Nextcloud:** Ordner und Dokumente direkt lesen per WebDAV, Menü → „Rosenweg-Nextcloud“ (PR #7).
 - **Rosenweg Updater:** hält auf dem eigenen Handy alle Rosenweg-Apps aktuell.
 
 ## Plattformen
@@ -40,6 +42,24 @@ Was die App kann:
 
 Nicht im Play Store und nicht auf F-Droid.
 
+## Anmeldung
+
+Die App braucht eine Anmeldung; ohne Anmeldung ist sie nicht nutzbar.
+
+| Wo | Wie |
+|---|---|
+| Eigenes Handy | Beim Öffnen kommt der gemeinsame Anmeldeschirm aus [commons-rosenweg](https://github.com/Rosenweg/commons-rosenweg) (sieht aus wie der Sperrbildschirm der geteilten Telefone): **Rosenweg-Karte** hinten ans Telefon halten (NFC) oder **„Mit Rosenweg-Konto anmelden“** im Browser. Kein PIN. |
+| Geteilte Rosenweg-Telefone | Es gilt die Anmeldung von Rosenweg Gerät (Karte am Sperrbildschirm, dort mit PIN). Kein eigener Anmeldeschirm. |
+
+| Regel | Was gilt |
+|---|---|
+| Sitzung je App | Jede App hat ihre eigene Sitzung; Abmelden betrifft nur diese App. |
+| Höchstens 20 Sitzungen | aktive Sitzungen je Person; die Technik sieht und widerruft jede einzeln. |
+| Karte entzogen | Die Sitzung endet beim nächsten Erneuern. |
+| Was die Anmeldung bringt | Dokumente der Rosenweg-Nextcloud lesen per WebDAV (nur lesen; bearbeitet wird in der Nextcloud mit Euro-Office); Aufruf über Menü (⋮) → „Rosenweg-Nextcloud“. |
+
+Stand: Anschluss an die Rosenweg-Nextcloud kommt mit PR #7 (Zweig `nextcloud-dav`); der Anmeldeschirm steckt im Modul `cloud` von commons-rosenweg (`RosenwegAnmeldeSchirm`, Server: Rosenweg/Website `api/routes/app-karte.js`).
+
 ## Rechte und Gruppen
 
 Die App hat keine eigenen Rollen. Wer sie auf den geteilten Telefonen bekommt, legt der App-Katalog der Telefonanlage fest.
@@ -48,7 +68,7 @@ Die App hat keine eigenen Rollen. Wer sie auf den geteilten Telefonen bekommt, l
 |---|---|
 | Technik | legt die App im Katalog auf /smartphones an, wählt die Gruppen, schaltet sie aktiv; kann Apps auf den geteilten Telefonen ausblenden |
 | Angemeldete Person in einer der Gruppen des Katalog-Eintrags (leer = alle) | sieht die App auf dem geteilten Telefon; Einstellungen gehören ihr |
-| Alle anderen | auf dem eigenen Handy: APK von /apps, ohne Anmeldung |
+| Personen mit Rosenweg-Konto oder Rosenweg-Karte | auf dem eigenen Handy nach der Anmeldung (APK von /apps) |
 
 ## Bedienung
 
@@ -69,7 +89,7 @@ Auf den geteilten Telefonen (mit Rosenweg Gerät, Anmeldung per Karte am Sperrbi
 |---|---|
 | Einstellungen pro Person | Nach dem Anmelden holt die App die Einstellungen der Person von der Telefonanlage; ist die Fassung dort neuer, gilt sie, sonst geht die hiesige hoch. Jede Änderung geht kurz danach hoch. Gerätebezogenes (Pfade, Zähler, Hinweise, PIN) bleibt auf dem Gerät. |
 | Updates | Rosenweg Gerät installiert die App aus dem App-Katalog und hält sie aktuell. |
-| Ohne Rosenweg Gerät | alles bleibt wie gewohnt auf dem Handy. |
+| Ohne Rosenweg Gerät | die Einstellungen bleiben auf dem Handy. |
 
 Voraussetzung: die Rosenweg-Signatur. Rosenweg Gerät beantwortet Anfragen nur von Apps mit seiner Signatur (`ch.rosenweg4303.permission.ANLAGE`).
 
