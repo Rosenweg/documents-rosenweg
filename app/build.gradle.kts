@@ -161,6 +161,7 @@ if (abiSplits) {
 }
 
 detekt {
+    baseline = file("detekt-baseline.xml")
     config.setFrom("$rootDir/detekt.yml")
     buildUponDefaultConfig = true
     allRules = false

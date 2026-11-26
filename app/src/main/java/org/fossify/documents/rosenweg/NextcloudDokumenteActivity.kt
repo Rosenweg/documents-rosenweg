@@ -1,7 +1,9 @@
 package org.fossify.documents.rosenweg
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -11,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.core.content.FileProvider
 import ch.rosenweg4303.cloud.AnmeldenActivity
 import ch.rosenweg4303.cloud.Eintrag
@@ -47,6 +50,11 @@ class NextcloudDokumenteActivity : Activity() {
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            onBackInvokedDispatcher.registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT) {
+                if (!hoch()) finish()
+            }
+        }
         pfad = b?.getString(PFAD) ?: ""
         val rand = dp(16)
         titel = TextView(this).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f); setPadding(rand, rand, rand, dp(8)) }
@@ -78,12 +86,19 @@ class NextcloudDokumenteActivity : Activity() {
         super.onDestroy()
     }
 
+    // Ab Android 13 kommt Zurueck (auch die Geste) ueber den OnBackInvokedDispatcher;
+    // onBackPressed() bleibt fuer aeltere Versionen.
+    @SuppressLint("GestureBackNavigation")
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        if (pfad.isEmpty() || dav == null) super.onBackPressed() else {
-            pfad = pfad.substringBeforeLast('/', "")
-            laden()
-        }
+        if (!hoch()) super.onBackPressed()
+    }
+
+    private fun hoch(): Boolean {
+        if (pfad.isEmpty() || dav == null) return false
+        pfad = pfad.substringBeforeLast('/', "")
+        laden()
+        return true
     }
 
     private fun nichtAngemeldet() {
