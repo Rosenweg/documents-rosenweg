@@ -50,6 +50,7 @@ class SettingsActivity : BaseComposeActivity() {
                 }
 
                 SettingsScreen(
+                    nachUpdatesSuchen = { ch.rosenweg4303.updater.RosenwegUpdater.jetztPruefen(this) },
                     displayLanguage = displayLanguage,
                     isUseEnglishEnabled = isUseEnglishEnabled,
                     isUseEnglishChecked = useEnglishFlow,
