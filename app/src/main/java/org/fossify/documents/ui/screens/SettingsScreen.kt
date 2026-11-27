@@ -34,6 +34,7 @@ internal fun SettingsScreen(
     onShowFileLocationsChange: (Boolean) -> Unit,
     customizeColors: () -> Unit,
     goBack: () -> Unit,
+    nachUpdatesSuchen: () -> Unit = {},
 ) {
     SimpleColumnScaffold(title = stringResource(id = org.fossify.commons.R.string.settings), goBack = goBack) {
         SettingsGroup(title = {
@@ -42,6 +43,12 @@ internal fun SettingsScreen(
             SettingsPreferenceComponent(
                 label = stringResource(id = org.fossify.commons.R.string.customize_colors),
                 doOnPreferenceClick = customizeColors,
+            )
+            // Rosenweg Updater: sofort pruefen (RosenwegUpdater.jetztPruefen)
+            SettingsPreferenceComponent(
+                label = stringResource(id = ch.rosenweg4303.updater.R.string.rosenweg_nach_updates_suchen),
+                value = stringResource(id = ch.rosenweg4303.updater.R.string.rosenweg_nach_updates_suchen_text),
+                doOnPreferenceClick = nachUpdatesSuchen,
             )
         }
 
